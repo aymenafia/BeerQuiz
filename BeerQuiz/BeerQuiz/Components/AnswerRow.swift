@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnswerRow: View {
-    @EnvironmentObject var triviaManager: TriviaManager
+    @EnvironmentObject var beerQuizManager: BeerQuizManager
     var answer: Answer
     @State private var isSelected = false
     
@@ -32,14 +32,14 @@ struct AnswerRow: View {
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-        .foregroundColor(triviaManager.answerSelected ? (isSelected ? Color("AccentColor") : .gray) : Color("AccentColor"))
+        .foregroundColor(beerQuizManager.answerSelected ? (isSelected ? Color("AccentColor") : .gray) : Color("AccentColor"))
         .background(.white)
         .cornerRadius(10)
         .shadow(color: isSelected ? (answer.isCorrect ? green : red ) : .gray , radius: 5, x: 0.5, y: 0.5)
         .onTapGesture {
-            if !triviaManager.answerSelected {
+            if !beerQuizManager.answerSelected {
                 isSelected = true
-                triviaManager.selectAnswer(answer: answer)
+                beerQuizManager.selectAnswer(answer: answer)
             }
         }
     }

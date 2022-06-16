@@ -1,5 +1,5 @@
 //
-//  TriviaManager.swift
+//  BeerQuizManager.swift
 //  BeerQuiz
 //
 //  Created by Aymen Aifa on 16.06.22.
@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-class TriviaManager: ObservableObject {
+class BeerQuizManager: ObservableObject {
     // Variables to set trivia and length of trivia
-    private(set) var trivia: [Trivia.Result] = []
+    private(set) var beerQuiz: [BeerQuiz.Result] = []
     @Published private(set) var length = 0
     
     // Variables to set question and answers
@@ -29,12 +29,12 @@ class TriviaManager: ObservableObject {
     // Call the fetchTrivia function on intialize of the class, asynchronously
     init() {
         Task.init {
-            await fetchTrivia()
+            await fetchBeerQuiz()
         }
     }
     
     // Asynchronous HTTP request to get the trivia questions and answers
-    func fetchTrivia() async {
+    func fetchBeerQuiz() async {
         guard let url = URL(string: "https://opentdb.com/api.php?amount=10") else { fatalError("Missing URL") }
         
         let urlRequest = URLRequest(url: url)
@@ -47,7 +47,7 @@ class TriviaManager: ObservableObject {
             let decoder = JSONDecoder()
             // Line below allows us to convert the correct_answer key from the API into the correctAnswer in our Trivia model, without running into an error from the JSONDecoder that it couldn't find a matching codingKey
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let decodedData = try decoder.decode(Trivia.self, from: data)
+            let decodedData = try decoder.decode(BeerQuiz.self, from: data)
 
             DispatchQueue.main.async {
                 // Reset variables before assigning new values, for when the user plays the game another time
@@ -57,12 +57,12 @@ class TriviaManager: ObservableObject {
                 self.reachedEnd = false
 
                 // Set new values for all variables
-                self.trivia = decodedData.results
-                self.length = self.trivia.count
+                self.beerQuiz = decodedData.results
+                self.length = self.beerQuiz.count
                 self.setQuestion()
             }
         } catch {
-            print("Error fetching trivia: \(error)")
+            print("Error fetching BeerQuiz: \(error)")
         }
     }
     
@@ -85,9 +85,9 @@ class TriviaManager: ObservableObject {
 
         // Only setting next question if index is smaller than the trivia's length
         if index < length {
-            let currentTriviaQuestion = trivia[index]
-            question = currentTriviaQuestion.formattedQuestion
-            answerChoices = currentTriviaQuestion.answers
+            let currentBeerQuizQuestion = beerQuiz[index]
+            question = currentBeerQuizQuestion.formattedQuestion
+            answerChoices = currentBeerQuizQuestion.answers
         }
     }
     

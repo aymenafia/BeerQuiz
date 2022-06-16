@@ -1,5 +1,5 @@
 //
-//  TriviaManager.swift
+//  BeerQuiz.swift
 //  BeerQuiz
 //
 //  Created by Aymen Aifa on 16.06.22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Trivia: Decodable {
+struct BeerQuiz: Decodable {
     var results: [Result]
     
     struct Result: Decodable, Identifiable {

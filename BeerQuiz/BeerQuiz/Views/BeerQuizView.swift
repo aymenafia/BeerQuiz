@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-struct TriviaView: View {
-    @EnvironmentObject var triviaManager: TriviaManager
+struct BeerQuizView: View {
+    @EnvironmentObject var beerQuizManager: BeerQuizManager
 
     var body: some View {
-        if triviaManager.reachedEnd {
+        if beerQuizManager.reachedEnd {
             VStack(spacing: 20) {
-                Text("Trivia Game")
+                Text("BeerQuiz Game")
                     .lilacTitle()
 
                 Text("Congratulations, you completed the game! 🥳")
                 
-                Text("You scored \(triviaManager.score) out of \(triviaManager.length)")
+                Text("You scored \(beerQuizManager.score) out of \(beerQuizManager.length)")
                 
                 Button {
                     Task.init {
-                        await triviaManager.fetchTrivia()
+                        await beerQuizManager.fetchBeerQuiz()
                     }
                 } label: {
                     PrimaryButton(text: "Play again")
@@ -34,14 +34,14 @@ struct TriviaView: View {
             .background(Color(red: 0.984313725490196, green: 0.9294117647058824, blue: 0.8470588235294118))
         } else {
             QuestionView()
-                .environmentObject(triviaManager)
+                .environmentObject(beerQuizManager)
         }
     }
 }
 
-struct TriviaView_Previews: PreviewProvider {
+struct BeerQuizView_Previews: PreviewProvider {
     static var previews: some View {
-        TriviaView()
-            .environmentObject(TriviaManager())
+        BeerQuizView()
+            .environmentObject(BeerQuizManager())
     }
 }

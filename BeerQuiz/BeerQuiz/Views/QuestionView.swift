@@ -8,38 +8,38 @@
 import SwiftUI
 
 struct QuestionView: View {
-    @EnvironmentObject var triviaManager: TriviaManager
+    @EnvironmentObject var beerQuizManager: BeerQuizManager
     
     var body: some View {
         VStack(spacing: 40) {
             HStack {
-                Text("Trivia Game")
+                Text("BeerQuiz Game")
                     .lilacTitle()
                 Spacer()
-                Text("\(triviaManager.index + 1) out of \(triviaManager.length)")
+                Text("\(beerQuizManager.index + 1) out of \(beerQuizManager.length)")
                     .foregroundColor(Color("AccentColor"))
                     .fontWeight(.heavy)
             }
         
-            ProgressBar(progress: triviaManager.progress)
+            ProgressBar(progress: beerQuizManager.progress)
             
             VStack(alignment: .leading, spacing: 20) {
-                Text(triviaManager.question)
+                Text(beerQuizManager.question)
                     .font(.system(size: 20))
                     .bold()
                     .foregroundColor(.gray)
-                ForEach(triviaManager.answerChoices, id: \.id) { answer in
+                ForEach(beerQuizManager.answerChoices, id: \.id) { answer in
                     AnswerRow(answer: answer)
-                        .environmentObject(triviaManager)
+                        .environmentObject(beerQuizManager)
                 }
             }
             
             Button {
-                triviaManager.goToNextQuestion()
+                beerQuizManager.goToNextQuestion()
             } label: {
-                PrimaryButton(text: "Next", background: triviaManager.answerSelected ? Color("AccentColor") : Color(hue: 1.0, saturation: 0.0, brightness: 0.564, opacity: 0.327))
+                PrimaryButton(text: "Next", background: beerQuizManager.answerSelected ? Color("AccentColor") : Color(hue: 1.0, saturation: 0.0, brightness: 0.564, opacity: 0.327))
             }
-            .disabled(!triviaManager.answerSelected)
+            .disabled(!beerQuizManager.answerSelected)
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -53,6 +53,6 @@ struct QuestionView: View {
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
         QuestionView()
-            .environmentObject(TriviaManager())
+            .environmentObject(BeerQuizManager())
     }
 }

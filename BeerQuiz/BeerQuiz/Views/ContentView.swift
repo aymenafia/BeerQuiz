@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var triviaManger = TriviaManager()
+    @StateObject var BeerQuizManger = BeerQuizManager()
     
     
     var body: some View {
         NavigationView {
             VStack(spacing: 40) {
                 VStack (spacing: 20) {
-                    Text("Trivia Game")
+                    Text("BeerQuiz Game")
                         .lilacTitle()
-                    Text("Are you ready to test out your trivia skills?")
+                    Text("Are you ready to test out your BeerQuiz skills?")
                      
                         .foregroundColor(Color("AccentColor"))
                 }
                 
                 NavigationLink {
-                    TriviaView()
-                        .environmentObject(triviaManger)
+                    BeerQuizView()
+                        .environmentObject(BeerQuizManger)
                 } label: {
                     PrimaryButton(text: "Let's go")
                 }

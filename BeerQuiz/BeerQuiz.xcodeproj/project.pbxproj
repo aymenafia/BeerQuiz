@@ -13,9 +13,9 @@
 		CB8A056B285B58300061AD07 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A056A285B58300061AD07 /* ProgressBar.swift */; };
 		CB8A056E285B5BA10061AD07 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A056D285B5BA10061AD07 /* Answer.swift */; };
 		CB8A0570285B5C0B0061AD07 /* AnswerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A056F285B5C0B0061AD07 /* AnswerRow.swift */; };
-		CB8A0572285B66980061AD07 /* TriviaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A0571285B66980061AD07 /* TriviaView.swift */; };
-		CB8A0574285B681A0061AD07 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A0573285B681A0061AD07 /* Trivia.swift */; };
-		CB8A0576285B6CFD0061AD07 /* TriviaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A0575285B6CFD0061AD07 /* TriviaManager.swift */; };
+		CB8A0572285B66980061AD07 /* BeerQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A0571285B66980061AD07 /* BeerQuizView.swift */; };
+		CB8A0574285B681A0061AD07 /* BeerQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A0573285B681A0061AD07 /* BeerQuiz.swift */; };
+		CB8A0576285B6CFD0061AD07 /* BeerQuizManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A0575285B6CFD0061AD07 /* BeerQuizManager.swift */; };
 		E17884EE283E40CF002480F0 /* BeerQuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17884ED283E40CF002480F0 /* BeerQuizApp.swift */; };
 		E17884F0283E40CF002480F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17884EF283E40CF002480F0 /* ContentView.swift */; };
 		E17884F2283E40D2002480F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E17884F1283E40D2002480F0 /* Assets.xcassets */; };
@@ -49,9 +49,9 @@
 		CB8A056A285B58300061AD07 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CB8A056D285B5BA10061AD07 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		CB8A056F285B5C0B0061AD07 /* AnswerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerRow.swift; sourceTree = "<group>"; };
-		CB8A0571285B66980061AD07 /* TriviaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaView.swift; sourceTree = "<group>"; };
-		CB8A0573285B681A0061AD07 /* Trivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
-		CB8A0575285B6CFD0061AD07 /* TriviaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaManager.swift; sourceTree = "<group>"; };
+		CB8A0571285B66980061AD07 /* BeerQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerQuizView.swift; sourceTree = "<group>"; };
+		CB8A0573285B681A0061AD07 /* BeerQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerQuiz.swift; sourceTree = "<group>"; };
+		CB8A0575285B6CFD0061AD07 /* BeerQuizManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerQuizManager.swift; sourceTree = "<group>"; };
 		E17884EA283E40CF002480F0 /* BeerQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeerQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17884ED283E40CF002480F0 /* BeerQuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerQuizApp.swift; sourceTree = "<group>"; };
 		E17884EF283E40CF002480F0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 			children = (
 				E17884EF283E40CF002480F0 /* ContentView.swift */,
 				CB8A0568285B57130061AD07 /* QuestionView.swift */,
-				CB8A0571285B66980061AD07 /* TriviaView.swift */,
+				CB8A0571285B66980061AD07 /* BeerQuizView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -113,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				CB8A056D285B5BA10061AD07 /* Answer.swift */,
-				CB8A0573285B681A0061AD07 /* Trivia.swift */,
+				CB8A0573285B681A0061AD07 /* BeerQuiz.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,7 +148,7 @@
 				E17884F1283E40D2002480F0 /* Assets.xcassets */,
 				E17884F3283E40D2002480F0 /* Preview Content */,
 				CB8A0565285B53FF0061AD07 /* Extensions.swift */,
-				CB8A0575285B6CFD0061AD07 /* TriviaManager.swift */,
+				CB8A0575285B6CFD0061AD07 /* BeerQuizManager.swift */,
 			);
 			path = BeerQuiz;
 			sourceTree = "<group>";
@@ -309,10 +309,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB8A0569285B57130061AD07 /* QuestionView.swift in Sources */,
-				CB8A0572285B66980061AD07 /* TriviaView.swift in Sources */,
-				CB8A0574285B681A0061AD07 /* Trivia.swift in Sources */,
+				CB8A0572285B66980061AD07 /* BeerQuizView.swift in Sources */,
+				CB8A0574285B681A0061AD07 /* BeerQuiz.swift in Sources */,
 				CB8A0562285B50700061AD07 /* PrimaryButton.swift in Sources */,
-				CB8A0576285B6CFD0061AD07 /* TriviaManager.swift in Sources */,
+				CB8A0576285B6CFD0061AD07 /* BeerQuizManager.swift in Sources */,
 				CB8A0570285B5C0B0061AD07 /* AnswerRow.swift in Sources */,
 				E17884F0283E40CF002480F0 /* ContentView.swift in Sources */,
 				CB8A056E285B5BA10061AD07 /* Answer.swift in Sources */,
